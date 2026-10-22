@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eff2df">
+  <meta name="description" content="A gentle unicorn adventure for little explorers. Help woodland friends, mend a rainbow bridge, and discover a magical crown.">
+  <title>Baby Zelda · A unicorn adventure</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Baby Zelda home"><span class="brand-icon" aria-hidden="true">✦</span><span><strong>Baby Zelda</strong><small>A unicorn adventure</small></span></a>
+      <div class="header-right"><span class="safe-tag">A little world of kindness</span><button class="icon-btn" id="sound" aria-label="Turn spoken hints off" title="Spoken hints">♫ <span>Voice on</span></button><button class="icon-btn" id="settings" aria-label="Open grown-up settings" title="Grown-up settings">⚙</button></div>
+    </header>
+    <section class="game-layout" aria-label="Unicorn adventure">
+      <div class="play-column">
+        <div class="world-wrap" id="worldWrap">
+          <canvas id="world" tabindex="0" role="application" aria-label="Unicorn adventure world. Use arrow keys or W A S D to move. Press space to use magic or talk. You can also tap a destination."></canvas>
+          <div class="world-top"><span class="location"><span aria-hidden="true">✿</span> <span id="location">Sunny Meadow</span></span><button id="fullscreen" class="map-button" aria-label="Toggle fullscreen">⛶</button></div>
+          <div class="world-bottom"><span class="world-caption">FOLLOW THE LITTLE SPARKLES</span><span id="saved">Progress saves here</span></div>
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          <div id="intro" class="overlay">
+            <div class="intro-card"><div class="eyebrow">HELLO, LITTLE EXPLORER</div><div class="intro-unicorn" aria-hidden="true"><img src="assets/coco-unicorn.png" class="coco-intro" alt=""></div><h1>A little magic.<br>A big adventure.</h1><p>Be a unicorn. Help your friends.<br>Make the whole meadow sparkle.</p><button class="primary" id="play">Let’s play <span aria-hidden="true">➜</span></button><span class="intro-foot">No losing. No hurry. Just wonder.</span></div>
+          </div>
+          <div id="win" class="overlay hidden"><div class="intro-card"><div class="eyebrow">YOU DID SOMETHING WONDERFUL</div><div class="intro-unicorn" aria-hidden="true">👑</div><h1>The meadow’s<br>little hero.</h1><p>You helped every friend!<br>Kindness is your superpower.</p><button class="primary" id="explore">Keep exploring <span aria-hidden="true">✦</span></button><button class="text-btn" id="again">Play the adventure again</button></div></div>
+        </div>
+        <div class="controls">
+          <div class="dpad" aria-label="Movement controls"><button data-dir="up" class="up" aria-label="Move up">▲</button><button data-dir="left" class="left" aria-label="Move left">◀</button><span class="pad-center" aria-hidden="true">✦</span><button data-dir="right" class="right" aria-label="Move right">▶</button><button data-dir="down" class="down" aria-label="Move down">▼</button></div>
+          <div class="control-hint"><strong>Little hooves, big adventures</strong><span>Tap the grass to go there.<br><kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> to move · <kbd>space</kbd> for magic</span></div>
+          <button class="magic-btn" id="magic"><span aria-hidden="true">✦</span><strong>Magic</strong><small>or press space</small></button>
+        </div>
+      </div>
+      <aside class="journal" aria-label="Your quest journal">
+        <div class="journal-heading"><span class="eyebrow">YOUR LITTLE ADVENTURE</span><h2>A pocketful of quests</h2><p>Good things happen one small step at a time.</p></div>
+        <div class="quest-list" id="quests"></div>
+        <div class="next-step"><span class="fairy" aria-hidden="true">✦</span><div><span class="eyebrow">TWINKLE’S TIP</span><p id="hint">Your woodland friends are waiting!</p></div><button id="repeat" class="read-btn" aria-label="Read the current hint aloud">♫</button></div>
+        <div class="pocket"><span class="eyebrow">IN YOUR POCKET</span><div id="inventory" aria-live="polite"><span class="empty-pocket">A little space for lovely things</span></div></div>
+        <div class="journal-footer"><span aria-hidden="true">♡ ♡ ♡</span><p>Brave hearts. Gentle adventures.</p></div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>Made for small hands & big imaginations.</span><span>Explore. Help. Sparkle.</span></footer>
+  </main>
+  <dialog id="settingsDialog"><form method="dialog"><button class="dialog-close" aria-label="Close settings">×</button><span class="eyebrow">FOR GROWN-UPS</span><h2>A gentle place to play</h2><p>There are no enemies, timers, purchases, or accounts. Progress is saved in this browser on this device.</p><label for="unicornColor">Magic sparkle color</label><select id="unicornColor"><option value="pink">Rose pink</option><option value="purple">Lilac purple</option><option value="blue">Sky blue</option></select><button type="button" id="reset" class="secondary">Start a fresh adventure</button><p class="small-note" id="resetNote">This clears this device’s saved quest progress.</p><button class="primary">Back to the meadow</button></form></dialog>
+  <script type="module" src="game.mjs"></script>
+</body>
+</html>
+
